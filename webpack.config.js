@@ -21,7 +21,7 @@ module.exports = {
     filename: "index.js",
     path: path.resolve(__dirname, "dist"),
   },
-  mode: "development",
+  mode: "production",
   plugins: [new ShebangPlugin()],
   watch: false,
 };
