@@ -7,6 +7,7 @@ import {
   colors,
   animals,
 } from "unique-names-generator";
+const uniqid = require("uniqid");
 
 export default (botName: BotName, iteration: number) => {
   if (botName === BotName.FICTIVE_USERNAME) {
@@ -17,5 +18,5 @@ export default (botName: BotName, iteration: number) => {
     });
   } else if (botName === BotName.HUMAN_FIRST_NAMES) {
     return new Chance().first();
-  } else if (botName === BotName.NUMBER) return iteration;
+  } else if (botName === BotName.ID) return uniqid();
 };
