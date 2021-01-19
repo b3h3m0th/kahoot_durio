@@ -8,7 +8,7 @@ import {
   animals,
 } from "unique-names-generator";
 
-export default (botName: BotName) => {
+export default (botName: BotName, iteration: number) => {
   if (botName === BotName.FICTIVE_USERNAME) {
     return uniqueNamesGenerator({
       dictionaries: [animals, adjectives, colors, names],
@@ -17,5 +17,5 @@ export default (botName: BotName) => {
     });
   } else if (botName === BotName.HUMAN_FIRST_NAMES) {
     return new Chance().first();
-  }
+  } else if (botName === BotName.NUMBER) return iteration;
 };

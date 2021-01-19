@@ -34,7 +34,7 @@ try {
       setTimeout(() => {
         console.clear();
         clients.push(new Kahoot());
-        clients[i].join(answers.pin, botName(answers.bot_names));
+        clients[i].join(answers.pin, botName(answers.bot_names, i));
         console.log(chalk.green.bold(`Successfully injected bots: ${i + 1}`));
       }, 50);
     }
