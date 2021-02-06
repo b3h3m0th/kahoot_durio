@@ -3,6 +3,9 @@
   "version": "1.11.0",
   "description": "Kahoot bot spammer",
   "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "command": "durio",
   "bin": "dist/index.js",
   "scripts": {
