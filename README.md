@@ -1,6 +1,7 @@
 # kahoot_durio
 
-Simple Kahoot bot spammer written in TS
+Simple Kahoot bot spammer written in TS.
+We all know why we need this xD
 
 ### Installation & Usage
 
