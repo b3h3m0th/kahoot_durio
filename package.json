@@ -14,7 +14,13 @@
     "build:watch": "webpack --progress -w",
     "start:dev": "ts-node src/index.ts"
   },
-  "keywords": [],
+  "keywords": [
+    "kahoot",
+    "bot",
+    "spammer",
+    "spam",
+    "kahoot-bot"
+  ],
   "author": "b3h3m0th",
   "license": "MIT",
   "dependencies": {
