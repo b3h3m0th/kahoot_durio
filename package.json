@@ -1,6 +1,6 @@
 {
   "name": "kahoot_durio",
-  "version": "1.12.1",
+  "version": "1.12.2",
   "description": "Kahoot bot spammer",
   "main": "dist/index.js",
   "files": [
