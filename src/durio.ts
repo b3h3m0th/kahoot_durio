@@ -1,11 +1,10 @@
 import { BotName } from "./types/Names";
 
-const Kahoot = require("kahoot.js-updated");
-const Inquirer = require("inquirer");
-const chalk = require("chalk");
-import botName from "./util/botName";
-
-const clients: any[] = [];
+import * as Inquirer from "inquirer";
+import * as chalk from "chalk";
+import sleep from "./util/sleep";
+import { Answers } from "./types/answers";
+import spawnClient from "./util/spawnClient";
 
 try {
   Inquirer.prompt([
@@ -19,7 +18,14 @@ try {
     {
       type: "input",
       name: "bot_amount",
-      message: "Amount of bots",
+      message: "Amount of bots (50 - 100 recommended)",
+      validate: async (input: any) =>
+        !isNaN(input) ? true : "Please enter a valid Number",
+    },
+    {
+      type: "input",
+      name: "join_delay",
+      message: "Delay between joins in ms (500 recommended)",
       validate: async (input: any) =>
         !isNaN(input) ? true : "Please enter a valid Number",
     },
@@ -29,20 +35,17 @@ try {
       message: "Choose a type of name for your bots",
       choices: [...Object.values(BotName)],
     },
-  ]).then((answers: any) => {
+  ]).then(async (answers: Answers) => {
     for (let i = 0; i < answers.bot_amount; i++) {
-      setTimeout(() => {
-        console.clear();
-        clients.push(new Kahoot());
-        clients[i].join(answers.pin, botName(answers.bot_names, i));
-        console.log(chalk.green.bold(`Successfully injected bots: ${i + 1}`));
-      }, 50);
+      spawnClient(
+        answers,
+        i /* , 0
+        // [CHECK COMMENT IN ./util/spawnClient.ts]
+        */
+      );
+      await sleep(answers.join_delay);
     }
   });
 } catch (err) {
-  console.log(
-    chalk.red.bold(
-      "Something has gone wrong...\nMaybe try using a smaller amount of bots"
-    )
-  );
+  console.log(chalk.red.bold("An error has occured."), err);
 }
