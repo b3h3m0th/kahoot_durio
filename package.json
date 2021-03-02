@@ -9,7 +9,7 @@
   "command": "durio",
   "bin": "dist/index.js",
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "webpack && node dist/index.js",
     "build": "webpack --progress",
     "build:watch": "webpack --progress -w",
     "start:dev": "ts-node src/index.ts"
